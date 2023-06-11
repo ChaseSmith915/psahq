@@ -13,6 +13,11 @@ public class NoobType1 : Noob
     // Update is called once per frame
     void Update()
     {
-        
+        this.setDirection();
+        //This adjusts the direction so that the Noob is facing the Object that it wants to follow.
+
+        this.walk(this.move);
+        //After getting the direction, it then moves.
+        //To see the implementation of both methods, please look at the Noob script.
     }
 }
