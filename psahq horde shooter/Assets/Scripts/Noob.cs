@@ -31,4 +31,9 @@ public abstract class Noob : MonoBehaviour
     {
         this.rigB.MovePosition((Vector2)transform.position + (angle * this.speed * Time.deltaTime));
     }
+    public void changeHP(float amount)
+    {
+        this.hp += amount;
+        //If the amount is a negative number, then the Noob is taking damage.
+    }
 }
