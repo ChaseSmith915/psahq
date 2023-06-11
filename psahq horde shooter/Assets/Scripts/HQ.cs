@@ -18,7 +18,7 @@ public class HQ : MonoBehaviour
 
     }
 
-    private void changeHP(float amount)
+    public void changeHP(float amount)
     {
         this.hp += amount;
         //This method can also be called for when the HQ takes damage.
