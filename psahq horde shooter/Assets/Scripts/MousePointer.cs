@@ -16,7 +16,7 @@ public class MousePointer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 mouseXY = cam.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mouseXY = this.cam.ScreenToWorldPoint(Input.mousePosition);
         mouseXY.z = 0f;
         //This is a 2D game so z is just left at 0.
 
