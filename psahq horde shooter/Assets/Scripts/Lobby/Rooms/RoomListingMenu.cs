@@ -1,0 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
+using UnityEngine.UI;
+
+public class RoomListingMenu : MonoBehaviourPunCallbacks
+{
+    [SerializeField] private Transform content;
+    [SerializeField] private GameObject roomListing;
+
+    private List<RoomListing> roomListings = new List<RoomListing>();
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        foreach (RoomInfo roomInfo in roomList)
+        {
+            if (roomInfo.RemovedFromList)
+            {
+                int index = roomListings.FindIndex(x => x.RoomInfo.Name == roomInfo.Name);
+                if (index != -1)
+                {
+                    Destroy(roomListings[index].gameObject);
+                    roomListings.RemoveAt(index);
+                }
+            }
+            RoomListing listing = Instantiate(roomListing, content).GetComponent<RoomListing>();
+            if (listing != null)
+            {
+                listing.SetRoomInfo(roomInfo);
+                roomListings.Add(listing);
+            }
+        }
+    }
+
+
+}
