@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         //compared to only moving East.
 
         Vector3 relative = this.cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float angle = Mathf.Atan2(relative.y, relative.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(relative.y, relative.x) * Mathf.Rad2Deg - 90f;
         this.rigBod.rotation = angle;
         relative.Normalize();
 
