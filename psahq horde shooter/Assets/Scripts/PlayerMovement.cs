@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     private Rigidbody2D rigBod;
+    [SerializeField] private Camera cam;
     [SerializeField] private float speed = 5f;
     //Adjust speed if needed;
 
@@ -24,5 +25,14 @@ public class PlayerMovement : MonoBehaviour
         //at the same time.
         //E.g. It should not take you the same time to reach the right side by walking Northeast
         //compared to only moving East.
+
+        Vector3 relative = this.cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        float angle = Mathf.Atan2(relative.y, relative.x) * Mathf.Rad2Deg;
+        this.rigBod.rotation = angle;
+        relative.Normalize();
+
+        Vector3 mouseXY = transform.position;
+        transform.position = mouseXY;
+        //This is to make the Player sprite face where the mouse is.
     }
 }
