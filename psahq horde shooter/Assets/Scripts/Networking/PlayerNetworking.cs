@@ -27,8 +27,11 @@ public class PlayerNetworking : MonoBehaviour
                 script.enabled = false;
             }
             rossCamera.enabled = false;
-            mousePointerPrefab = Instantiate(mousePointerPrefab);
-            mousePointerPrefab.GetComponent<MousePointer>().Cam = rossCamera;
+        }
+        else
+        {
+            GameObject mouserPointer = Instantiate(mousePointerPrefab);
+            mouserPointer.GetComponent<MousePointer>().Cam = rossCamera;
         }
 
     }
