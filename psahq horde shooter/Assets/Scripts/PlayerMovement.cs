@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
         //E.g. It should not take you the same time to reach the right side by walking Northeast
         //compared to only moving East.
 
+        /*
+
         Vector3 relative = this.cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float angle = Mathf.Atan2(relative.y, relative.x) * Mathf.Rad2Deg - 90f;
         this.rigBod.rotation = angle;
@@ -33,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 mouseXY = transform.position;
         transform.position = mouseXY;
+        */
         //This is to make the Player sprite face where the mouse is.
     }
 }

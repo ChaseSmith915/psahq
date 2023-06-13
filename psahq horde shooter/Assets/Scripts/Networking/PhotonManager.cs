@@ -50,6 +50,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         PhotonNetwork.AutomaticallySyncScene = false;
-        PhotonNetwork.LoadLevel("Game");
+        PhotonNetwork.LoadLevel("game");
     }
 }
