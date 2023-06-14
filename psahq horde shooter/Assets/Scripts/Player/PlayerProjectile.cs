@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerProjectile : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class PlayerProjectile : MonoBehaviour
 
     private void fire()
     {
-        GameObject shot = Instantiate(this.projectile, transform.position, transform.rotation);
+        GameObject shot = PhotonNetwork.Instantiate(this.projectile.name, transform.position, transform.rotation);
         Rigidbody2D hitbox = shot.GetComponent<Rigidbody2D>();
         hitbox.AddForce(transform.up * this.speed, ForceMode2D.Impulse);
         //This creates a new projectile object and then moves it.
