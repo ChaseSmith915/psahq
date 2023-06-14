@@ -12,11 +12,6 @@ public abstract class Noob : MonoBehaviour
     public Vector2 move; 
     public Rigidbody2D rigB;
 
-    protected void Start()
-    {
-        hqXY = GameObject.Find("HQ").transform;
-    }
-
     public void setDirection()
     {
         Vector3 relative = this.hqXY.position - transform.position;

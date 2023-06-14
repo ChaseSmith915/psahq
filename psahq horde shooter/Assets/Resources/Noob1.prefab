@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
-  speed: 5
+  speed: 100
   hqXY: {fileID: 0}
   hq: {fileID: 0}
   move: {x: 0, y: 0}
