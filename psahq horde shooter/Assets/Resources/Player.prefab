@@ -151,6 +151,7 @@ MonoBehaviour:
   cur_cooldown: 0
   speed: 8
   projectile: {fileID: 4642226937868391639, guid: f607fe8eea99f914b9e0f1dd9bb1ca33, type: 3}
+  cam: {fileID: 6381803974849154393}
 --- !u!114 &5549713799980789184
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,12 +7,11 @@ public class PlayerProjectile : MonoBehaviour
 {
     [SerializeField] private float damage = 2f, cooldown = 0.5f, cur_cooldown = 0f, speed = 8f;
     [SerializeField] GameObject projectile;
-    private Rigidbody2D rb;
+    [SerializeField] private Camera cam;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.rb = GetComponent<Rigidbody2D>();
         this.gameObject.SetActive(true);
         //This just makes it that the Game Object is not visible.
     }
@@ -37,7 +36,9 @@ public class PlayerProjectile : MonoBehaviour
     {
         GameObject shot = PhotonNetwork.Instantiate(this.projectile.name, transform.position, transform.rotation);
         Rigidbody2D hitbox = shot.GetComponent<Rigidbody2D>();
-        hitbox.AddForce(transform.up * this.speed, ForceMode2D.Impulse);
-        //This creates a new projectile object and then moves it.
+        Vector3 relative = this.cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        float angle = Mathf.Atan2(relative.y, relative.x) * Mathf.Rad2Deg - 90f;
+        shot.transform.rotation = Quaternion.Euler(0,0,angle);
+        hitbox.AddForce(relative * this.speed, ForceMode2D.Impulse);
     }
 }
