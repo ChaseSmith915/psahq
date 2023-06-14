@@ -5,12 +5,17 @@ using UnityEngine;
 public abstract class Noob : MonoBehaviour
 {
     [SerializeField] public float hp = 10f, speed = 3f;
-    [SerializeField] public Transform hqXY;
+    public Transform hqXY;
     [SerializeField] public GameObject hq;
     //hqXY and hq will have a reference to the HQ so that the Noobs know where the HQ is and walk towards it.
 
     public Vector2 move; 
     public Rigidbody2D rigB;
+
+    protected void Start()
+    {
+        hqXY = GameObject.Find("HQ").transform;
+    }
 
     public void setDirection()
     {

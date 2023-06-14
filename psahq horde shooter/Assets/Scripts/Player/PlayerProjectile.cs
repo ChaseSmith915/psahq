@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UIElements;
 
 public class PlayerProjectile : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class PlayerProjectile : MonoBehaviour
             cur_cooldown -= Time.deltaTime;
         }
 
-        if (Input.GetMouseButtonDown(0) && this.cur_cooldown <= 0)
+        if (Input.GetMouseButton(0) && this.cur_cooldown <= 0)
         {
             this.fire();
             this.cur_cooldown = this.cooldown;
@@ -36,9 +37,9 @@ public class PlayerProjectile : MonoBehaviour
     {
         GameObject shot = PhotonNetwork.Instantiate(this.projectile.name, transform.position, transform.rotation);
         Rigidbody2D hitbox = shot.GetComponent<Rigidbody2D>();
-        Vector3 relative = this.cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        Vector2 relative = (this.cam.ScreenToWorldPoint(Input.mousePosition) - transform.position);
         float angle = Mathf.Atan2(relative.y, relative.x) * Mathf.Rad2Deg - 90f;
         shot.transform.rotation = Quaternion.Euler(0,0,angle);
-        hitbox.AddForce(relative * this.speed, ForceMode2D.Impulse);
+        hitbox.AddForce(relative.normalized * speed, ForceMode2D.Impulse);
     }
 }

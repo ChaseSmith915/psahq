@@ -1,18 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
+using Photon.Pun;
+using System;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectiles : MonoBehaviourPun
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public event Action<string, GameObject> OnProjectileHit;
+    [SerializeField] private float projectileLifetime;
+
 
     // Update is called once per frame
     void Update()
     {
-        
+        projectileLifetime -= Time.deltaTime;
+        if (projectileLifetime < 0)
+        {
+            destroyProjectileRPC();
+        }
     }
+
+    private void destroyProjectileRPC()
+    {
+        photonView.RPC("destroyProjectile", RpcTarget.All);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("col");
+    }
+
+    [PunRPC]
+    private void destroyProjectile()
+    {
+
+        Destroy(this.gameObject);
+    }
+
+
 }
