@@ -109,6 +109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 2176308646585464497}
   speed: 5
+  animator: {fileID: 0}
+  accelSpeed: 0
 --- !u!50 &7527167126655590904
 Rigidbody2D:
   serializedVersion: 4
@@ -154,6 +156,7 @@ MonoBehaviour:
   speed: 14
   projectile: {fileID: 4642226937868391639, guid: f607fe8eea99f914b9e0f1dd9bb1ca33, type: 3}
   cam: {fileID: 2176308646585464497}
+  animator: {fileID: 0}
 --- !u!114 &8296389260925490253
 MonoBehaviour:
   m_ObjectHideFlags: 0

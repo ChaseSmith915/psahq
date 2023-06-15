@@ -9,6 +9,7 @@ public class PlayerProjectile : MonoBehaviour
     [SerializeField] private float damage = 2f, cooldown = 0.5f, cur_cooldown = 0f, speed = 8f;
     [SerializeField] GameObject projectile;
     [SerializeField] private Camera cam;
+    [SerializeField] private Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +26,18 @@ public class PlayerProjectile : MonoBehaviour
         {
             cur_cooldown -= Time.deltaTime;
         }
+        else
+        {
+            animator.SetBool("firing", false);
+        }
 
         if (Input.GetMouseButton(0) && this.cur_cooldown <= 0)
         {
             this.fire();
             this.cur_cooldown = this.cooldown;
+
+            animator.SetBool("firing", true);
+            UnityEngine.Debug.Log("LMB pressed!");
         }
     }
 
