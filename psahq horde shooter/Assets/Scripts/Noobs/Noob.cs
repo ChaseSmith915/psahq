@@ -4,13 +4,14 @@ using UnityEngine;
 
 public abstract class Noob : MonoBehaviour
 {
-    [SerializeField] public float hp = 10f, speed = 3f;
+    [SerializeField] public float cur_hp, maxHP = 10f, speed = 3f;
     public Transform hqXY;
     [SerializeField] public GameObject hq;
     //hqXY and hq will have a reference to the HQ so that the Noobs know where the HQ is and walk towards it.
 
     public Vector2 move; 
     public Rigidbody2D rigB;
+    public HealthBar healthbar;
 
     public void setDirection()
     {
@@ -33,7 +34,7 @@ public abstract class Noob : MonoBehaviour
     }
     public void changeHP(float amount)
     {
-        this.hp += amount;
+        this.cur_hp += amount;
         //If the amount is a negative number, then the Noob is taking damage.
     }
 }

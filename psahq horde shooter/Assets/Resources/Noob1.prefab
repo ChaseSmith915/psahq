@@ -101,12 +101,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2c0fcc400cfec47a68ead2c650d086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  cur_hp: 0
+  maxHP: 10
   speed: 100
   hqXY: {fileID: 0}
   hq: {fileID: 0}
   move: {x: 0, y: 0}
   rigB: {fileID: 4986000203349289948}
+  healthbar: {fileID: 0}
 --- !u!50 &4986000203349289948
 Rigidbody2D:
   serializedVersion: 4

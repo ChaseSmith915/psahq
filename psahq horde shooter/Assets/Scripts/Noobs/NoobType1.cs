@@ -7,9 +7,12 @@ public class NoobType1 : Noob
     // Start is called before the first frame update
     void Start()
     {
+        this.cur_hp = this.maxHP;
         hqXY = GameObject.Find("HQ").transform;
         Debug.Log(hqXY);
         this.rigB = GetComponent<Rigidbody2D>();
+        //this.healthbar = GetComponent<HealthBar>();
+        //this.healthbar.setHealth(this.cur_hp, this.maxHP);
     }
 
     // Update is called once per frame
