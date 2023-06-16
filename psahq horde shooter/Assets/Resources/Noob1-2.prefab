@@ -527,10 +527,13 @@ MonoBehaviour:
   cur_hp: 0
   maxHP: 10
   speed: 10
+  knockbackTime: 0.3
+  knockbackPower: 4
   hqXY: {fileID: 0}
   move: {x: 0, y: 0}
   rigB: {fileID: 4986000203349289948}
   healthbar: {fileID: 0}
+  knockedOut: 0
 --- !u!50 &4986000203349289948
 Rigidbody2D:
   serializedVersion: 4

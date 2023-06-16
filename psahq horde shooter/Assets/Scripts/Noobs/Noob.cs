@@ -4,13 +4,14 @@ using UnityEngine;
 
 public abstract class Noob : MonoBehaviour
 {
-    [SerializeField] public float cur_hp, maxHP = 10f, speed = 3f;
+    [SerializeField] public float cur_hp, maxHP = 10f, speed = 3f, knockbackTime, knockbackPower;
     public Transform hqXY;
     //hqXY will have a reference to the HQ so that the Noobs know where the HQ is and walk towards it.
 
     public Vector2 move; 
     public Rigidbody2D rigB;
     public HealthBar healthbar;
+    public bool knockedOut;
 
     public void setDirection()
     {
@@ -29,7 +30,8 @@ public abstract class Noob : MonoBehaviour
 
     public void walk(Vector2 angle)
     {
-        this.rigB.MovePosition((Vector2)transform.position + (angle * this.speed * Time.deltaTime));
+        if (!this.knockedOut)
+            this.rigB.MovePosition((Vector2)transform.position + (angle * this.speed * Time.deltaTime));
     }
     public void changeHP(float amount)
     {
@@ -44,6 +46,7 @@ public abstract class Noob : MonoBehaviour
 
     public void Start()
     {
+        this.knockedOut = false;
         this.cur_hp = this.maxHP;
         this.hqXY = GameObject.Find("HQ").transform;
         this.rigB = GetComponent<Rigidbody2D>();
@@ -64,6 +67,25 @@ public abstract class Noob : MonoBehaviour
         if (collision.CompareTag("Projectile"))
         {
             this.changeHP(-3);
+            Vector2 knockAngle = (transform.position - collision.gameObject.transform.position).normalized;
+            this.rigB.AddForce(knockAngle * this.knockbackPower, ForceMode2D.Impulse);
+            //The Noob is knocked back, the angle they are knocked back depends on what direction
+            //the projectile hit the Noob.
+
+            StartCoroutine(this.knockBack());
+            //StartCoroutine basically stops everything for knockBackTime seconds and in those seconds,
+            //it will push the Noob backwards.
+
+            this.knockedOut = true;
         }
+    }
+
+    public IEnumerator knockBack()
+    {
+        yield return new WaitForSeconds(this.knockbackTime);
+        //Pause for knockbackTime seconds.
+
+        this.rigB.velocity = Vector3.zero;
+        this.knockedOut = false;
     }
 }
