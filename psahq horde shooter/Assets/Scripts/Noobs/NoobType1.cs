@@ -4,23 +4,8 @@ using UnityEngine;
 
 public class NoobType1 : Noob
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.cur_hp = this.maxHP;
-        this.hqXY = GameObject.Find("HQ").transform;
-        this.rigB = GetComponent<Rigidbody2D>();
-
-        this.healthbar = GetComponentInChildren<HealthBar>();
-        //The GetComponentInChildren method gets any component that the child GameObjects that
-        //the parent GameObject has.
-        //E.g. If you attached the Main Camera into the player and the Main Camera had a script,
-        //you can use the GetComponentInChildren method to get that Component the Main Camera had.
-
-        this.healthbar.setHealth(this.cur_hp, this.maxHP);
-        //The setHealth method belongs to the Health Bar class. It just displays the current
-        //health by dividing the cur_hp and maxHP.
-    }
+    //There is no Start method because the Noob abstract class has one for it.
+    //But you may override it if you want.
 
     // Update is called once per frame
     void Update()

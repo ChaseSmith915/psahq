@@ -11,7 +11,6 @@ public abstract class Noob : MonoBehaviour
     public Vector2 move; 
     public Rigidbody2D rigB;
     public HealthBar healthbar;
-    //[SerializeField] public GameObject healthCanvas;
 
     public void setDirection()
     {
@@ -35,6 +34,36 @@ public abstract class Noob : MonoBehaviour
     public void changeHP(float amount)
     {
         this.cur_hp += amount;
+        this.healthbar.setHealth(this.cur_hp, this.maxHP);
         //If the amount is a negative number, then the Noob is taking damage.
+
+        if (this.cur_hp <= 0)
+            Destroy(this.gameObject);
+        
+    }
+
+    public void Start()
+    {
+        this.cur_hp = this.maxHP;
+        this.hqXY = GameObject.Find("HQ").transform;
+        this.rigB = GetComponent<Rigidbody2D>();
+
+        this.healthbar = GetComponentInChildren<HealthBar>();
+        //The GetComponentInChildren method gets any component that the child GameObjects that
+        //the parent GameObject has.
+        //E.g. If you attached the Main Camera into the player and the Main Camera had a script,
+        //you can use the GetComponentInChildren method to get that Component the Main Camera had.
+
+        this.healthbar.setHealth(this.cur_hp, this.maxHP);
+        //The setHealth method belongs to the Health Bar class. It just displays the current
+        //health by dividing the cur_hp and maxHP.
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Projectile"))
+        {
+            this.changeHP(-3);
+        }
     }
 }
