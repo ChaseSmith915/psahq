@@ -103,9 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cur_hp: 0
   maxHP: 10
-  speed: 100
+  speed: 10
   hqXY: {fileID: 0}
-  hq: {fileID: 0}
   move: {x: 0, y: 0}
   rigB: {fileID: 4986000203349289948}
   healthbar: {fileID: 0}

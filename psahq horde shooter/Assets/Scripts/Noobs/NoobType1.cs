@@ -8,11 +8,18 @@ public class NoobType1 : Noob
     void Start()
     {
         this.cur_hp = this.maxHP;
-        hqXY = GameObject.Find("HQ").transform;
-        Debug.Log(hqXY);
+        this.hqXY = GameObject.Find("HQ").transform;
         this.rigB = GetComponent<Rigidbody2D>();
-        //this.healthbar = GetComponent<HealthBar>();
-        //this.healthbar.setHealth(this.cur_hp, this.maxHP);
+
+        this.healthbar = GetComponentInChildren<HealthBar>();
+        //The GetComponentInChildren method gets any component that the child GameObjects that
+        //the parent GameObject has.
+        //E.g. If you attached the Main Camera into the player and the Main Camera had a script,
+        //you can use the GetComponentInChildren method to get that Component the Main Camera had.
+
+        this.healthbar.setHealth(this.cur_hp, this.maxHP);
+        //The setHealth method belongs to the Health Bar class. It just displays the current
+        //health by dividing the cur_hp and maxHP.
     }
 
     // Update is called once per frame
@@ -24,5 +31,6 @@ public class NoobType1 : Noob
         this.walk(this.move);
         //After getting the direction, it then moves.
         //To see the implementation of both methods, please look at the Noob script.
+
     }
 }
