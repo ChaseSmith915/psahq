@@ -11,6 +11,8 @@ public abstract class Noob : MonoBehaviour
 
     public Vector2 move; 
     public Rigidbody2D rigB;
+    [SerializeField] public Animator animator;
+    [SerializeField] public SpriteRenderer sprite;
 
     public void setDirection()
     {
@@ -25,11 +27,24 @@ public abstract class Noob : MonoBehaviour
         //at the same pace as just moving in one direction.
 
         this.move = relative;
+
+        // Flip sprite to face destination
+        if (hqXY.position.x < transform.position.x)
+        {
+            sprite.flipX = true;
+        }
+        else
+        {
+            sprite.flipX = false;
+        }
     }
 
     public void walk(Vector2 angle)
     {
         this.rigB.MovePosition((Vector2)transform.position + (angle * this.speed * Time.deltaTime));
+
+        // Reset angle
+        rigB.rotation = 0f;
     }
     public void changeHP(float amount)
     {

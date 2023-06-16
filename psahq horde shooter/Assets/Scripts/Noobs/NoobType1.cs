@@ -10,6 +10,9 @@ public class NoobType1 : Noob
         hqXY = GameObject.Find("HQ").transform;
         Debug.Log(hqXY);
         this.rigB = GetComponent<Rigidbody2D>();
+
+        int randomSkin = Random.Range(1, 6);
+        animator.SetInteger("skin", randomSkin);
     }
 
     // Update is called once per frame
