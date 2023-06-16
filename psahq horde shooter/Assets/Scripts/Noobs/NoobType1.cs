@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class NoobType1 : Noob
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        hqXY = GameObject.Find("HQ").transform;
-        Debug.Log(hqXY);
-        this.rigB = GetComponent<Rigidbody2D>();
-    }
+    //There is no Start method because the Noob abstract class has one for it.
+    //But you may override it if you want.
 
     // Update is called once per frame
     void Update()
@@ -21,5 +16,6 @@ public class NoobType1 : Noob
         this.walk(this.move);
         //After getting the direction, it then moves.
         //To see the implementation of both methods, please look at the Noob script.
+
     }
 }
