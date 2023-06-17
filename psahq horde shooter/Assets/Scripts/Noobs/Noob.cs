@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public abstract class Noob : MonoBehaviour
+[RequireComponent(typeof(PhotonView))]
+public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
 {
     [SerializeField] public float cur_hp, maxHP = 10f, speed = 3f, knockbackTime, knockbackPower;
+    [SerializeField] private PhotonView pv;
     public Transform hqXY;
     //hqXY will have a reference to the HQ so that the Noobs know where the HQ is and walk towards it.
 
@@ -64,9 +67,9 @@ public abstract class Noob : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Projectile"))
+        if (collision.CompareTag("Projectile") && PhotonNetwork.IsMasterClient)
         {
-            this.changeHP(-3);
+            pv.RPC("DealDamageRPC", RpcTarget.All);
             Vector2 knockAngle = (transform.position - collision.gameObject.transform.position).normalized;
             this.rigB.AddForce(knockAngle * this.knockbackPower, ForceMode2D.Impulse);
             //The Noob is knocked back, the angle they are knocked back depends on what direction
@@ -87,5 +90,26 @@ public abstract class Noob : MonoBehaviour
 
         this.rigB.velocity = Vector3.zero;
         this.knockedOut = false;
+    }
+
+    #region IPunObservable implementation
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(healthbar.HealthBarSlider.value);
+        }
+        else
+        {
+            healthbar.HealthBarSlider.value = (float)stream.ReceiveNext();
+        }
+    }
+
+    #endregion
+
+    [PunRPC]
+    public void DealDamageRPC()
+    {
+        this.changeHP(-3);
     }
 }

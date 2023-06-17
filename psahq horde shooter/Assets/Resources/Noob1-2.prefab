@@ -529,6 +529,7 @@ MonoBehaviour:
   speed: 10
   knockbackTime: 0.3
   knockbackPower: 4
+  pv: {fileID: 2905012668824374942}
   hqXY: {fileID: 0}
   move: {x: 0, y: 0}
   rigB: {fileID: 4986000203349289948}
@@ -580,6 +581,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 5704729217154514652}
   - {fileID: 6468868812834953998}
   - {fileID: 6778345653461950718}
   sceneViewId: 0

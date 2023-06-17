@@ -9,12 +9,15 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Transform owner;
 
     [SerializeField] private Vector3 shift;
+
+    public Slider HealthBarSlider { get => healthBar; set => healthBar = value; }
+
     //shift is how much you want to move the healthBar from the owner.
     //E.g. if the shift is just 0, then the health bar would just be in the middle of the owner.
 
     public void setHealth(float cur_hp, float maxHP)
     {
-        this.healthBar.value = cur_hp / maxHP;
+        this.HealthBarSlider.value = cur_hp / maxHP;
         //This method is public because the other scripts will have an Object
         //reference to the HealthBar class.
     }
