@@ -69,7 +69,7 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (collision.CompareTag("Projectile") && PhotonNetwork.IsMasterClient)
         {
-            pv.RPC("DealDamageRPC", RpcTarget.All);
+            this.changeHP(-3);
             Vector2 knockAngle = (transform.position - collision.gameObject.transform.position).normalized;
             this.rigB.AddForce(knockAngle * this.knockbackPower, ForceMode2D.Impulse);
             //The Noob is knocked back, the angle they are knocked back depends on what direction
@@ -97,19 +97,15 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (stream.IsWriting)
         {
-            stream.SendNext(healthbar.HealthBarSlider.value);
+            stream.SendNext(this.cur_hp);
         }
         else
         {
-            healthbar.HealthBarSlider.value = (float)stream.ReceiveNext();
+            float newHP = (float)stream.ReceiveNext();
+            changeHP(cur_hp - newHP);
         }
     }
 
     #endregion
 
-    [PunRPC]
-    public void DealDamageRPC()
-    {
-        this.changeHP(-3);
-    }
 }
