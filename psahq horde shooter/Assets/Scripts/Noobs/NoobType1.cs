@@ -1,8 +1,9 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoobType1 : Noob
+public class NoobType1 : Noob, IPunObservable
 {
     //There is no Start method because the Noob abstract class has one for it.
     //But you may override it if you want.

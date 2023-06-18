@@ -9,6 +9,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Transform owner;
 
     [SerializeField] private Vector3 shift;
+
     //shift is how much you want to move the healthBar from the owner.
     //E.g. if the shift is just 0, then the health bar would just be in the middle of the owner.
 

@@ -37,7 +37,6 @@ public class PlayerProjectile : MonoBehaviour
             this.cur_cooldown = this.cooldown;
 
             animator.SetBool("firing", true);
-            UnityEngine.Debug.Log("LMB pressed!");
         }
     }
 
