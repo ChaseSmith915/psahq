@@ -69,17 +69,11 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (collision.CompareTag("Projectile") && PhotonNetwork.IsMasterClient)
         {
-            this.changeHP(-3);
+            pv.RPC("HurtEnemyRPC", RpcTarget.All);
             Vector2 knockAngle = (transform.position - collision.gameObject.transform.position).normalized;
             this.rigB.AddForce(knockAngle * this.knockbackPower, ForceMode2D.Impulse);
-            //The Noob is knocked back, the angle they are knocked back depends on what direction
-            //the projectile hit the Noob.
 
             StartCoroutine(this.knockBack());
-            //StartCoroutine basically stops everything for knockBackTime seconds and in those seconds,
-            //it will push the Noob backwards.
-
-            this.knockedOut = true;
         }
     }
 
@@ -101,11 +95,28 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            float newHP = (float)stream.ReceiveNext();
-            changeHP(cur_hp - newHP);
+            cur_hp = (float)stream.ReceiveNext();
+            if(healthbar == null)
+            {
+                return;
+            }
+            this.healthbar.setHealth(this.cur_hp, this.maxHP);
         }
     }
 
     #endregion
+
+    [PunRPC]
+    public void HurtEnemyRPC()
+    {
+        this.changeHP(-3);
+        //The Noob is knocked back, the angle they are knocked back depends on what direction
+        //the projectile hit the Noob.
+
+        //StartCoroutine basically stops everything for knockBackTime seconds and in those seconds,
+        //it will push the Noob backwards.
+
+        this.knockedOut = true;
+    }
 
 }

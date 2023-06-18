@@ -43,6 +43,7 @@ MonoBehaviour:
   - onDirectoinChange_RIGHT
   - destroyProjectile
   - DealDamageRPC
+  - HurtEnemyRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0
