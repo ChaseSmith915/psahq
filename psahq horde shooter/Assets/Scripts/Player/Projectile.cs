@@ -20,12 +20,7 @@ public class Projectiles : MonoBehaviourPun
 
     private void destroyProjectileRPC()
     {
-        photonView.RPC("destroyProjectile", RpcTarget.All);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("col");
+        //photonView.RPC("destroyProjectile", RpcTarget.All);
     }
 
     [PunRPC]
