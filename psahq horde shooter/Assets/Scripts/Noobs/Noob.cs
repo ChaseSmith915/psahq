@@ -47,8 +47,11 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
         
     }
 
-    public void Start()
+    public virtual void Start()
     {
+        //The virtual keyword means that Classes that inherit this Class,
+        //can override methods with 'virtual' in it.
+
         this.knockedOut = false;
         this.cur_hp = this.maxHP;
         this.hqXY = GameObject.Find("HQ").transform;
