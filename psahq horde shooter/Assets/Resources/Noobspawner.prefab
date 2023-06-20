@@ -64,7 +64,7 @@ Transform:
   m_Children:
   - {fileID: 311292571587177021}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6140351535981342842
 MonoBehaviour:
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTimer: 2
   noobPrefabs:
-  - {fileID: 9128892294973281361, guid: 53fdb44e3feba5f449b06c1eb078f0d1, type: 3}
+  - {fileID: 9128892294973281361, guid: 9bca7299a2a0fc248a1e12fcd4c48599, type: 3}
   - {fileID: 253641645697723878, guid: 1bee537bf1cd1234ea5f7c576d7f5c3a, type: 3}
   - {fileID: 7134782340401707358, guid: 63b01514d864d844992a96f62f03cfdc, type: 3}
   spawnPoint: {fileID: 311292571587177021}

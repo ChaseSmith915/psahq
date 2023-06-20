@@ -155,6 +155,7 @@ MonoBehaviour:
   rigB: {fileID: 0}
   healthbar: {fileID: 0}
   knockedOut: 0
+  anim: {fileID: 0}
 --- !u!1 &6722858538374498035
 GameObject:
   m_ObjectHideFlags: 0
