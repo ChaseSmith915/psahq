@@ -80,7 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTimer: 2
   noobPrefabs:
-  - {fileID: 9128892294973281361, guid: 9bca7299a2a0fc248a1e12fcd4c48599, type: 3}
+  - {fileID: 8456706487462841663, guid: 592f275cb431f5443873a00093c880d8, type: 3}
   - {fileID: 6224905734590703913, guid: 1bee537bf1cd1234ea5f7c576d7f5c3a, type: 3}
   - {fileID: 111748192578542337, guid: 63b01514d864d844992a96f62f03cfdc, type: 3}
   spawnPoint: {fileID: 311292571587177021}

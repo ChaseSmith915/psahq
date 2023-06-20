@@ -15,6 +15,7 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
     public Rigidbody2D rigB;
     public HealthBar healthbar;
     public bool knockedOut;
+    public GFXSprite rotater;
 
     public void setDirection()
     {
@@ -36,6 +37,20 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
         if (!this.knockedOut && pv.IsMine) //Noobs move twice as fast if we don't only run this on the master client.
             this.rigB.MovePosition((Vector2)transform.position + (angle * this.speed * Time.deltaTime));
     }
+
+    public void walk()
+    {
+        Vector3 relative = this.hqXY.position - transform.position;
+        float angle = Mathf.Atan2(relative.y, relative.x) * Mathf.Rad2Deg;
+
+        relative.Normalize();
+
+        this.rotater.setAngle(angle);
+
+        if (!this.knockedOut && pv.IsMine)
+            this.rigB.MovePosition((Vector2)transform.position + ( ((Vector2)relative) * this.speed * Time.deltaTime));
+    }
+
     public void changeHP(float amount)
     {
         this.cur_hp += amount;
@@ -55,9 +70,10 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
         this.knockedOut = false;
         this.cur_hp = this.maxHP;
         this.hqXY = GameObject.Find("HQ").transform;
-        this.rigB = GetComponent<Rigidbody2D>();
 
-        this.healthbar = GetComponentInChildren<HealthBar>();
+        //this.rigB = GetComponent<Rigidbody2D>();
+
+        //this.healthbar = GetComponentInChildren<HealthBar>();
         //The GetComponentInChildren method gets any component that the child GameObjects that
         //the parent GameObject has.
         //E.g. If you attached the Main Camera into the player and the Main Camera had a script,
@@ -66,6 +82,8 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
         this.healthbar.setHealth(this.cur_hp, this.maxHP);
         //The setHealth method belongs to the Health Bar class. It just displays the current
         //health by dividing the cur_hp and maxHP.
+
+        //this.rotater = GetComponentInChildren<GFXSprite>();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
