@@ -18,14 +18,16 @@ public class NoobType4 : Noob
 
         this.cur_teleTime = this.teleportCooldown;
         this.curTeleport = false;
+        this.rotater = GetComponentInChildren<GFXSprite>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!this.curTeleport) {
-            this.setDirection();
-            this.walk(this.move);
+            //this.setDirection();
+            //this.walk(this.move);
+            this.walk();
         }
         this.cur_teleTime -= Time.deltaTime;
     }
