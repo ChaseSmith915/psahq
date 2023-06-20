@@ -26,7 +26,9 @@ public class NoobSpawner : MonoBehaviour
             float direction = Random.Range(0, 360);
             this.transform.eulerAngles = new Vector3 ( 0, 0, direction );
 
-            PhotonNetwork.InstantiateRoomObject(noobPrefabs[0].name, spawnPoint.position, Quaternion.identity);
+            int noobType = (int)Random.Range(0, this.noobPrefabs.Length);
+
+            PhotonNetwork.InstantiateRoomObject(noobPrefabs[noobType].name, spawnPoint.position, Quaternion.identity);
         }
     }
 }

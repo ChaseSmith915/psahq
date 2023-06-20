@@ -582,8 +582,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e2de10b4d05ce4b818b97b899438bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicIntroList: []
-  musicList: []
+  musicIntroList:
+  - {fileID: 8300000, guid: ddb09f017d58a6849811b727ea600d0e, type: 3}
+  musicList:
+  - {fileID: 8300000, guid: 5ff7ab553ea0e444d8a1a2e373e05c47, type: 3}
+  - {fileID: 8300000, guid: d882d3f64423dbe4bb925501660a1d9c, type: 3}
+  - {fileID: 8300000, guid: f068f7774b453fa4f9c4b2ffe4bda598, type: 3}
   musicSource: {fileID: 0}
   Instance: {fileID: 0}
 --- !u!82 &274177136
