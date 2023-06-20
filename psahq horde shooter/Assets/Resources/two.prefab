@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3733264738212910249}
   - component: {fileID: 5417588679474470102}
   - component: {fileID: 8657291148528483137}
+  - component: {fileID: 8036282844397069957}
   m_Layer: 0
   m_Name: two
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,10 +103,15 @@ MonoBehaviour:
   cur_hp: 0
   maxHP: 10
   speed: 3
+  knockbackTime: 0
+  knockbackPower: 0
+  pv: {fileID: 0}
   hqXY: {fileID: 0}
   move: {x: 0, y: 0}
   rigB: {fileID: 0}
   healthbar: {fileID: 0}
+  knockedOut: 0
+  anim: {fileID: 0}
 --- !u!50 &8657291148528483137
 Rigidbody2D:
   serializedVersion: 4
@@ -133,6 +139,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8036282844397069957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8898532966417688189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 5417588679474470102}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &3316002888759065968
 PrefabInstance:
   m_ObjectHideFlags: 0

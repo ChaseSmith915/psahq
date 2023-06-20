@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 7740278106632036225}
   m_Layer: 0
   m_Name: two 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -524,10 +524,15 @@ MonoBehaviour:
   cur_hp: 0
   maxHP: 10
   speed: 10
+  knockbackTime: 0
+  knockbackPower: 0
+  pv: {fileID: 0}
   hqXY: {fileID: 0}
   move: {x: 0, y: 0}
   rigB: {fileID: 0}
   healthbar: {fileID: 0}
+  knockedOut: 0
+  anim: {fileID: 0}
 --- !u!50 &8657291148528483137
 Rigidbody2D:
   serializedVersion: 4
@@ -573,7 +578,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 5417588679474470102}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

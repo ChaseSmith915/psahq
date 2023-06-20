@@ -33,7 +33,7 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
 
     public void walk(Vector2 angle)
     {
-        if (!this.knockedOut)
+        if (!this.knockedOut && pv.IsMine) //Noobs move twice as fast if we don't only run this on the master client.
             this.rigB.MovePosition((Vector2)transform.position + (angle * this.speed * Time.deltaTime));
     }
     public void changeHP(float amount)
