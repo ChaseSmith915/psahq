@@ -42,6 +42,7 @@ public class NoobSpawner : MonoBehaviour
             Debug.Log("new wave sent");
             yield return new WaitForSeconds(wave.WaveDuration);
         }
+        yield return new WaitForSeconds(100);
         Debug.Log("win");
         OnGameWin?.Invoke();
     }
