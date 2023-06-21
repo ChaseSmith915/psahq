@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Music : MonoBehaviour
 {
@@ -16,27 +17,43 @@ public class Music : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            Debug.Log("parody");
         }
         else
         {
             Destroy(this.gameObject);
         }
 
-        playMusic(0);
+        playMusic(2);
+    }
+
+    private void OnGUI()
+    {
+        if (SceneManager.GetActiveScene().name == "game")
+        {
+            GameObject.Find("Noobspawner").GetComponent<NoobSpawner>().OnGameStart += playGameMusic;
+        }
+
     }
     public void playMusic(int a)
     {
+        musicSource.Stop();
         musicSource.clip = musicList[a];
         musicSource.Play();
     }
 
     public IEnumerator playIntroThenMusic(int introIndex, int musicIndex)
     {
+        musicSource.Stop();
         musicSource.clip = musicIntroList[introIndex];
         musicSource.Play();
         yield return new WaitForSeconds(musicIntroList[musicIndex].length);
         musicSource.clip = musicList[musicIndex];
         musicSource.Play();
     }
+
+    private void playGameMusic()
+    {
+        playMusic(1);
+    }
+
 }

@@ -2,33 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System;
+using System.Linq;
 
 public class NoobSpawner : MonoBehaviour
 {
+    [SerializeField] private List<Wave> waves = new List<Wave>();
     [SerializeField] private float maxTimer;
     [SerializeField] private GameObject[] noobPrefabs;
     [SerializeField] private Transform spawnPoint;
-    private float timer;
-    void Start()
+    [SerializeField] private PhotonView pv;
+    public int wave;
+    public event Action OnGameStart;
+    public event Action OnGameWin;
+    private bool isKeyDown;
+    IEnumerator Start()
     {
-        timer = maxTimer;
+        Debug.Log("g");
+        while(!(isKeyDown && (pv.IsMine)))
+        {
+            yield return null;
+          
+        }
+        Debug.Log("p");
+        OnGameStart?.Invoke();
+        StartCoroutine("sendWaves");
+        
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        timer -= Time.deltaTime;
-
-
-        if(timer < 0 )
+        isKeyDown = Input.GetKey(KeyCode.Space); //I need to do it like this because input will not be detected inside of a coroutine. I think. i tried
+    }
+    private IEnumerator sendWaves()
+    {
+        foreach(Wave wave in waves)
         {
-            timer = maxTimer;
-            float direction = Random.Range(0, 360);
-            this.transform.eulerAngles = new Vector3 ( 0, 0, direction );
-
-            int noobType = (int)Random.Range(0, this.noobPrefabs.Length);
-
-            PhotonNetwork.InstantiateRoomObject(noobPrefabs[noobType].name, spawnPoint.position, Quaternion.identity);
+            wave.sendWave();
+            Debug.Log("new wave sent");
+            yield return new WaitForSeconds(wave.WaveDuration);
         }
+        Debug.Log("win");
+        OnGameWin?.Invoke();
     }
 }
