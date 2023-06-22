@@ -41,6 +41,7 @@ public class NoobType4 : Noob
 
     private void teleport()
     {
+        this.setDirection();
         this.distance(this.move, 100f);
         StartCoroutine(this.time());
         //For 0.05 seconds, basically move really fast. It just gives the interpretation that

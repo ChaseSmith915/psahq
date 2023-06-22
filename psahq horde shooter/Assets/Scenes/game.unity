@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 386203736}
   - component: {fileID: 386203737}
   m_Layer: 0
-  m_Name: Wave9
+  m_Name: Wave10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -559,7 +559,7 @@ PrefabInstance:
       objectReference: {fileID: 733306856}
     - target: {fileID: 6140351535981342842, guid: e1e6205de3df7c64c92a9cb03e0e5ae0, type: 3}
       propertyPath: waves.Array.size
-      value: 3
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6140351535981342842, guid: e1e6205de3df7c64c92a9cb03e0e5ae0, type: 3}
       propertyPath: waves.Array.data[0]
@@ -573,6 +573,38 @@ PrefabInstance:
       propertyPath: waves.Array.data[2]
       value: 
       objectReference: {fileID: 1113358047}
+    - target: {fileID: 6140351535981342842, guid: e1e6205de3df7c64c92a9cb03e0e5ae0, type: 3}
+      propertyPath: waves.Array.data[3]
+      value: 
+      objectReference: {fileID: 166524369}
+    - target: {fileID: 6140351535981342842, guid: e1e6205de3df7c64c92a9cb03e0e5ae0, type: 3}
+      propertyPath: waves.Array.data[4]
+      value: 
+      objectReference: {fileID: 451338935}
+    - target: {fileID: 6140351535981342842, guid: e1e6205de3df7c64c92a9cb03e0e5ae0, type: 3}
+      propertyPath: waves.Array.data[5]
+      value: 
+      objectReference: {fileID: 1818187253}
+    - target: {fileID: 6140351535981342842, guid: e1e6205de3df7c64c92a9cb03e0e5ae0, type: 3}
+      propertyPath: waves.Array.data[6]
+      value: 
+      objectReference: {fileID: 791764521}
+    - target: {fileID: 6140351535981342842, guid: e1e6205de3df7c64c92a9cb03e0e5ae0, type: 3}
+      propertyPath: waves.Array.data[7]
+      value: 
+      objectReference: {fileID: 1611347251}
+    - target: {fileID: 6140351535981342842, guid: e1e6205de3df7c64c92a9cb03e0e5ae0, type: 3}
+      propertyPath: waves.Array.data[8]
+      value: 
+      objectReference: {fileID: 762912733}
+    - target: {fileID: 6140351535981342842, guid: e1e6205de3df7c64c92a9cb03e0e5ae0, type: 3}
+      propertyPath: waves.Array.data[9]
+      value: 
+      objectReference: {fileID: 386203737}
+    - target: {fileID: 6140351535981342842, guid: e1e6205de3df7c64c92a9cb03e0e5ae0, type: 3}
+      propertyPath: waves.Array.data[10]
+      value: 
+      objectReference: {fileID: 1867767571}
     - target: {fileID: 6980707959021537086, guid: e1e6205de3df7c64c92a9cb03e0e5ae0, type: 3}
       propertyPath: sceneViewId
       value: 3
@@ -747,7 +779,7 @@ GameObject:
   - component: {fileID: 762912732}
   - component: {fileID: 762912733}
   m_Layer: 0
-  m_Name: Wave8
+  m_Name: Wave9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1961,7 +1993,7 @@ GameObject:
   - component: {fileID: 1867767570}
   - component: {fileID: 1867767571}
   m_Layer: 0
-  m_Name: Wave10
+  m_Name: Wave11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
