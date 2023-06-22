@@ -24,26 +24,43 @@ public class NoobSpawner : MonoBehaviour
             yield return null;
           
         }
-        Debug.Log("p");
-        OnGameStart?.Invoke();
+        pv.RPC("startGameRPC", RpcTarget.All);
+        yield return new WaitForEndOfFrame();
         StartCoroutine("sendWaves");
         
     }
 
     private void Update()
     {
-        isKeyDown = Input.GetKey(KeyCode.Space); //I need to do it like this because input will not be detected inside of a coroutine. I think. i tried
+        isKeyDown = Input.GetKeyDown(KeyCode.Space); //I need to do it like this because input will not be detected inside of a coroutine. I think. i tried
     }
     private IEnumerator sendWaves()
     {
         foreach(Wave wave in waves)
         {
+            yield return new WaitForEndOfFrame();
             wave.sendWave();
             Debug.Log("new wave sent");
-            yield return new WaitForSeconds(wave.WaveDuration);
+            while (!(isKeyDown && (pv.IsMine)))
+            {
+                yield return null;
+            }
+            yield return new WaitForEndOfFrame();
         }
         yield return new WaitForSeconds(100);
         Debug.Log("win");
+        pv.RPC("gameWinRPC", RpcTarget.All);
+    }
+
+    [PunRPC]
+    private void startGameRPC()
+    {
+        OnGameStart?.Invoke();
+
+    }
+    [PunRPC]
+    private void gameWinRPC()
+    {
         OnGameWin?.Invoke();
     }
 }
