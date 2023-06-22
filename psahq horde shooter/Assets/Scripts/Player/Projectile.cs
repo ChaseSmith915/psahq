@@ -14,7 +14,7 @@ public class Projectiles : MonoBehaviourPun
         projectileLifetime -= Time.deltaTime;
         if (projectileLifetime < 0)
         {
-            destroyProjectileRPC();
+            GetComponent<PhotonView>().RPC("destroyProjectile", RpcTarget.All);
         }
     }
 
