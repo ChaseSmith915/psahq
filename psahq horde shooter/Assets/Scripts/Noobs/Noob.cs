@@ -86,11 +86,22 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
         //this.rotater = GetComponentInChildren<GFXSprite>();
     }
 
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Projectile") && PhotonNetwork.IsMasterClient)
+        Projectiles exist = collision.GetComponent<Projectiles>();
+
+        if (collision.CompareTag("Projectile") && PhotonNetwork.IsMasterClient && exist)
         {
-            pv.RPC("HurtEnemyRPC", RpcTarget.All);
+            //exist is used to see if the gameObject that the Noob was hit with has the Projectiles script/component.
+            //This is because projectiles might have different damage (E.g. Ross' or Skeng's projectile) and so we need
+            //a reference to the Projectiles object.
+
+            exist.setPierce(exist.getPierce() - 1);
+
+            pv.RPC("HurtEnemyRPC", RpcTarget.All, exist.getDamage());
+            //The 3rd parameter of pv.RPC is just the arguments to put into the HurtEnemyRPC() method.
+
             Vector2 knockAngle = (transform.position - collision.gameObject.transform.position).normalized;
             this.rigB.AddForce(knockAngle * this.knockbackPower, ForceMode2D.Impulse);
 
@@ -128,9 +139,11 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
     #endregion
 
     [PunRPC]
-    public void HurtEnemyRPC()
+    public void HurtEnemyRPC(float damage)
     {
-        this.changeHP(-3);
+        this.changeHP(-1 * damage);
+        //It's -1 * damage because the changeHP uses the += operator.
+
         //The Noob is knocked back, the angle they are knocked back depends on what direction
         //the projectile hit the Noob.
 
