@@ -15,9 +15,19 @@ public class NoobSpawner : MonoBehaviour
     public int wave;
     public event Action OnGameStart;
     public event Action OnGameWin;
+    public event Action OnWaveSent;
     private bool isKeyDown;
+    public static NoobSpawner Instance;
     IEnumerator Start()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
         Debug.Log("g");
         while(!(isKeyDown && (pv.IsMine)))
         {
@@ -40,6 +50,7 @@ public class NoobSpawner : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
             wave.sendWave();
+            OnWaveSent?.Invoke();
             Debug.Log("new wave sent");
             while (!(isKeyDown && (pv.IsMine)))
             {

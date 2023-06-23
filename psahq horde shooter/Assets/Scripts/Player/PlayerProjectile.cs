@@ -10,6 +10,7 @@ public class PlayerProjectile : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] private Camera cam;
     [SerializeField] private Animator animator;
+    [SerializeField] private RossSounds rossSounds;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,7 @@ public class PlayerProjectile : MonoBehaviour
 
     private void fire()
     {
+        rossSounds.playShootSound();
         GameObject shot = PhotonNetwork.Instantiate(this.projectile.name, transform.position, transform.rotation);
         Rigidbody2D hitbox = shot.GetComponent<Rigidbody2D>();
         Vector2 relative = (this.cam.ScreenToWorldPoint(Input.mousePosition) - transform.position);
