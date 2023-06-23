@@ -248,6 +248,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   speed: 7
+  animator: {fileID: 0}
+  accelSpeed: 0
 --- !u!50 &871157329
 Rigidbody2D:
   serializedVersion: 4
