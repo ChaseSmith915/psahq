@@ -12,13 +12,10 @@ public class NoobType4 : Noob
         this.knockedOut = false;
         this.cur_hp = this.maxHP;
         this.hqXY = GameObject.Find("HQ").transform;
-        this.rigB = GetComponent<Rigidbody2D>();
-        this.healthbar = GetComponentInChildren<HealthBar>();
         this.healthbar.setHealth(this.cur_hp, this.maxHP);
 
         this.cur_teleTime = this.teleportCooldown;
         this.curTeleport = false;
-        this.rotater = GetComponentInChildren<GFXSprite>();
     }
 
     // Update is called once per frame
@@ -32,17 +29,18 @@ public class NoobType4 : Noob
         this.cur_teleTime -= Time.deltaTime;
     }
 
-    private void distance(Vector2 boost, float amount)
+    private void distance(float amount)
     {
+        Vector3 relative = this.hqXY.position - transform.position;
         if (!this.knockedOut)
-            this.rigB.MovePosition((Vector2)transform.position + (boost * amount * Time.deltaTime));
+            this.rigB.MovePosition((Vector2)transform.position + ( ((Vector2)relative) * amount * Time.deltaTime));
         //This is honestly just the Noob's walk method but with this.speed replaced with amount.
     }
 
     private void teleport()
     {
-        this.setDirection();
-        this.distance(this.move, 100f);
+        //this.setDirection();
+        this.distance(15f);
         StartCoroutine(this.time());
         //For 0.05 seconds, basically move really fast. It just gives the interpretation that
         //the Noob is teleporting.

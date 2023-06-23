@@ -2,20 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Slider healthBar;
     [SerializeField] private Transform owner;
+    [SerializeField] private TMP_Text text;
 
     [SerializeField] private Vector3 shift;
-
     //shift is how much you want to move the healthBar from the owner.
     //E.g. if the shift is just 0, then the health bar would just be in the middle of the owner.
 
     public void setHealth(float cur_hp, float maxHP)
     {
         this.healthBar.value = cur_hp / maxHP;
+        this.text.text = "HP: " + cur_hp + " / " + maxHP;
         //This method is public because the other scripts will have an Object
         //reference to the HealthBar class.
     }
