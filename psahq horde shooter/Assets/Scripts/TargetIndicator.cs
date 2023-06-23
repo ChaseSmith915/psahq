@@ -7,12 +7,16 @@ public class TargetIndicator : MonoBehaviour
     public Noob noob;
     public GameObject arrow;
     private float maxDistance = 2f;
-    [SerializeField] private Camera cam;
+    private Camera cam;
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
-
+        while(PlayerReference.Instance.playerCam == null)
+        {
+            yield return null;
+        }
+        cam = PlayerReference.Instance.playerCam; 
     }
 
     // Update is called once per frame

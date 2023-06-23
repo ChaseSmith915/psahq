@@ -47,7 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noob: {fileID: 528168043117772936}
   arrow: {fileID: 6454569328142020370}
-  cam: {fileID: 0}
 --- !u!1 &1378034239467818522
 GameObject:
   m_ObjectHideFlags: 0
