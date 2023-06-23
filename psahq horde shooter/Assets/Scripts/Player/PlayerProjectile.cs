@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class PlayerProjectile : MonoBehaviour
 {
-    [SerializeField] private float damage = 2f, cooldown = 0.5f, cur_cooldown = 0f, speed = 8f;
+    [SerializeField] private float cooldown = 0.5f, cur_cooldown = 0f, speed = 8f;
     [SerializeField] GameObject projectile;
     [SerializeField] private Camera cam;
     [SerializeField] private Animator animator;
@@ -15,8 +15,7 @@ public class PlayerProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.gameObject.SetActive(true);
-        //This just makes it that the Game Object is not visible.
+        //this.gameObject.SetActive(true);
     }
 
     // Update is called once per frame

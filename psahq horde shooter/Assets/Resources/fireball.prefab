@@ -232,6 +232,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileLifetime: 2
+  pierce: 3
+  damage: 3
 --- !u!95 &7353910508097668792
 Animator:
   serializedVersion: 5
