@@ -71,9 +71,6 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
         this.cur_hp = this.maxHP;
         this.hqXY = GameObject.Find("HQ").transform;
 
-        //this.rigB = GetComponent<Rigidbody2D>();
-
-        //this.healthbar = GetComponentInChildren<HealthBar>();
         //The GetComponentInChildren method gets any component that the child GameObjects that
         //the parent GameObject has.
         //E.g. If you attached the Main Camera into the player and the Main Camera had a script,
@@ -82,20 +79,19 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
         this.healthbar.setHealth(this.cur_hp, this.maxHP);
         //The setHealth method belongs to the Health Bar class. It just displays the current
         //health by dividing the cur_hp and maxHP.
-
-        //this.rotater = GetComponentInChildren<GFXSprite>();
     }
 
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Projectiles exist = collision.GetComponent<Projectiles>();
+        
 
-        if (collision.CompareTag("Projectile") && PhotonNetwork.IsMasterClient && exist)
+        if (collision.CompareTag("Projectile") && PhotonNetwork.IsMasterClient)
         {
+            Projectiles exist = collision.GetComponent<Projectiles>();
             //exist is used to see if the gameObject that the Noob was hit with has the Projectiles script/component.
-            //This is because projectiles might have different damage (E.g. Ross' or Skeng's projectile) and so we need
-            //a reference to the Projectiles object.
+            //You can make the if-statement check if exist is not null but the tag "Projectile" should be enough since
+            //GetComponent<>() method apparently takes a lot of power.
 
             exist.setPierce(exist.getPierce() - 1);
 
