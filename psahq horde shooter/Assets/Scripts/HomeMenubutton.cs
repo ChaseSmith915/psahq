@@ -4,15 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class HomeMenubutton : MonoBehaviour
+public class HomeMenuButton : MonoBehaviour
 {
-    [SerializeField] private Button btn;
+    [SerializeField] private Button button;
     void Start()
     {
-        btn.onClick.AddListener(goIntoLobby);
+        button.onClick.AddListener(parody);
     }
 
-    private void goIntoLobby()
+    private void parody()
     {
         SceneManager.LoadScene("Lobby");
     }
