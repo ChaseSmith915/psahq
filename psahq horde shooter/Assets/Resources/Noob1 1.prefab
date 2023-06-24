@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b6051eae1564f439f9cf20b7ae3c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noob: {fileID: 528168043117772936}
+  noob: {fileID: 8456706487462841663}
   arrow: {fileID: 6454569328142020370}
 --- !u!1 &1378034239467818522
 GameObject:
@@ -839,7 +839,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8456706487462841663}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.35, y: 1.98, z: 0}
+  m_LocalPosition: {x: -19.110847, y: 1.4479288, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -847,7 +847,7 @@ Transform:
   - {fileID: 5432658269657529055}
   - {fileID: 176552988603700638}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &137848182379917353
 SpriteRenderer:

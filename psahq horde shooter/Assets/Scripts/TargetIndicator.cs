@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class TargetIndicator : MonoBehaviour
 {
-    public Noob noob;
-    public GameObject arrow;
+    public GameObject noob, arrow;
     private float maxDistance = 2f;
     private Camera cam;
 
@@ -49,9 +48,9 @@ public class TargetIndicator : MonoBehaviour
                 Vector3 edge = this.cam.ViewportToWorldPoint(new Vector3(Mathf.Clamp(noobPosition.x, 0.1f, 0.9f), Mathf.Clamp(noobPosition.y, 0.1f, 0.9f), this.cam.nearClipPlane));
 
                 this.arrow.transform.position = new Vector3(edge.x, edge.y, 0);
-                Vector3 direction = this.noob.gameObject.transform.position - transform.position;
+                Vector3 direction = this.noob.gameObject.transform.position - this.cam.transform.position;
 
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 13f;
                 this.arrow.gameObject.transform.rotation = Quaternion.Euler(0, 0, angle);
 
                 //This inner-else statement is when the Noob is off screen and so it shows the pointer.
