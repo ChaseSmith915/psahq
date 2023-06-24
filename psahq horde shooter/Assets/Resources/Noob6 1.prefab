@@ -321,7 +321,7 @@ Transform:
   m_GameObject: {fileID: 3825861477733024475}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -14.55, y: -2.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7019883565450483147}
@@ -888,7 +888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cur_hp: 0
   maxHP: 15
-  speed: 5
+  speed: 4
   knockbackTime: 0.4
   knockbackPower: 2
   pv: {fileID: 8826750922366664624}

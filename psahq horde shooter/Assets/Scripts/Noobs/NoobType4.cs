@@ -10,7 +10,7 @@ public class NoobType4 : Noob
 
     public override void Start()
     {
-        this.maxHP += ((PhotonNetwork.CurrentRoom.PlayerCount - 1) * 1.25f);
+        this.maxHP += ((PhotonNetwork.CurrentRoom.PlayerCount - 1) * 0.25f * this.maxHP);
         this.knockedOut = false;
         this.cur_hp = this.maxHP;
         this.hqXY = GameObject.Find("HQ").transform;
