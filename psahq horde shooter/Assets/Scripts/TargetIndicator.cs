@@ -28,12 +28,11 @@ public class TargetIndicator : MonoBehaviour
     public void the()
     {
         Vector3 relative = this.noob.gameObject.transform.position - transform.position;
-        float distance = relative.magnitude;
-        //Magnitude is just the distance.
 
-        if (distance < this.maxDistance)
+        if (relative.magnitude < this.maxDistance)
+            //Magnitude is just the distance.
         {
-            
+
             this.arrow.gameObject.SetActive(false);
             //When the noob is in the screen or at least nearby, it hides the pointer.
         } else

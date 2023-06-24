@@ -6,10 +6,10 @@ using UnityEngine.UIElements;
 
 public class PlayerProjectile : MonoBehaviour
 {
-    [SerializeField] private float cooldown = 0.5f, cur_cooldown = 0f, speed = 8f;
-    [SerializeField] GameObject projectile;
-    [SerializeField] private Camera cam;
-    [SerializeField] private Animator animator;
+    public float cooldown = 0.5f, cur_cooldown = 0f, speed = 8f;
+    public GameObject projectile;
+    public Camera cam;
+    public Animator animator;
     [SerializeField] private RossSounds rossSounds;
 
     // Start is called before the first frame update
@@ -40,7 +40,7 @@ public class PlayerProjectile : MonoBehaviour
         }
     }
 
-    private void fire()
+    public virtual void fire()
     {
         rossSounds.playShootSound();
         GameObject shot = PhotonNetwork.Instantiate(this.projectile.name, transform.position, transform.rotation);

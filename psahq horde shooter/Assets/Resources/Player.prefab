@@ -635,10 +635,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96caba48415e0b64fb5f258556a01a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigBod: {fileID: 1189081711761853640}
   cam: {fileID: 1834024234589578947}
   speed: 5
-  animator: {fileID: 2365644935702531307}
   accelSpeed: 0.1
+  animator: {fileID: 2365644935702531307}
 --- !u!50 &1189081711761853640
 Rigidbody2D:
   serializedVersion: 4
