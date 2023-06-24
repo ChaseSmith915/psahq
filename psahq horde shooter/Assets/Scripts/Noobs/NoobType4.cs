@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class NoobType4 : Noob
 {
@@ -9,6 +10,7 @@ public class NoobType4 : Noob
 
     public override void Start()
     {
+        this.maxHP += ((PhotonNetwork.CurrentRoom.PlayerCount - 1) * 1.25f);
         this.knockedOut = false;
         this.cur_hp = this.maxHP;
         this.hqXY = GameObject.Find("HQ").transform;

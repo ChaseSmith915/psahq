@@ -6,7 +6,7 @@ using Photon.Pun;
 [RequireComponent(typeof(PhotonView))]
 public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
 {
-    [SerializeField] public float cur_hp, maxHP = 10f, speed = 3f, knockbackTime, knockbackPower;
+    public float cur_hp, maxHP = 10f, speed = 3f, knockbackTime, knockbackPower;
     [SerializeField] private PhotonView pv;
     public Transform hqXY;
     //hqXY will have a reference to the HQ so that the Noobs know where the HQ is and walk towards it.
@@ -68,6 +68,7 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
         //can override methods with 'virtual' in it.
 
         this.knockedOut = false;
+        this.maxHP += ((PhotonNetwork.CurrentRoom.PlayerCount - 1) * 1.25f);
         this.cur_hp = this.maxHP;
         this.hqXY = GameObject.Find("HQ").transform;
 

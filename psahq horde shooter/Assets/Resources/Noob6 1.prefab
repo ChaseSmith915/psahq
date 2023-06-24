@@ -45,9 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b6051eae1564f439f9cf20b7ae3c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noob: {fileID: 1558012908277161792}
+  noob: {fileID: 8560082728914503147}
   arrow: {fileID: 3825861477733024475}
-  cam: {fileID: 0}
 --- !u!1 &1222171585320796018
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +119,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000061035, y: -0.0000059605}
+  m_AnchoredPosition: {x: -5.4, y: -0.27}
   m_SizeDelta: {x: 188.344, y: 47.4098}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8321433854148208517
@@ -214,7 +213,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -118.085236, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -848,7 +847,7 @@ Transform:
   - {fileID: 8823794079722185481}
   - {fileID: 7019883565450483147}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8826750922366664624
 MonoBehaviour:

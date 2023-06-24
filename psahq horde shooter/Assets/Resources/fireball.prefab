@@ -231,9 +231,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feeb8074d35a6bc4288679c682e6347b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileLifetime: 2
+  projectileLifetime: 1.7
   pierce: 3
-  damage: 3
+  damage: 4
 --- !u!95 &7353910508097668792
 Animator:
   serializedVersion: 5

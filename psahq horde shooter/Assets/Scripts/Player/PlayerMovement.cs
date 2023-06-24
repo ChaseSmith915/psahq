@@ -5,17 +5,16 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    private Rigidbody2D rigBod;
-    [SerializeField] private Camera cam;
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private Animator animator;
-    [SerializeField] private float accelSpeed;
+    public Rigidbody2D rigBod;
+    public Camera cam;
+    public float speed = 5f, accelSpeed;
+    public Animator animator;
     //Adjust speed if needed;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.rigBod = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
