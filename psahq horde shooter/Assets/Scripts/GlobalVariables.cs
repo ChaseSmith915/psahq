@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GlobalVariables : MonoBehaviour
 {
-    public GlobalVariables Instance;
+    public static GlobalVariables Instance;
     public string characterChoice;
     protected void Awake()
     {
@@ -17,11 +17,5 @@ public class GlobalVariables : MonoBehaviour
         {
             Instance = this;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

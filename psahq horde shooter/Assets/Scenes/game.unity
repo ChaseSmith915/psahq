@@ -739,6 +739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 8822874512192287143, guid: f4f31adb4e68fa240a943dfda311b32a, type: 3}
+  skengPrefab: {fileID: 8822874512192287143, guid: be445dc530c19fa4d92aad14772e2ae9, type: 3}
 --- !u!4 &1242789542
 Transform:
   m_ObjectHideFlags: 0
