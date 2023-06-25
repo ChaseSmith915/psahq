@@ -6,6 +6,7 @@ public class Projectiles : MonoBehaviourPun
 {
     public event Action<string, GameObject> OnProjectileHit;
     [SerializeField] private float projectileLifetime, pierce, damage;
+    private int id;
 
 
     // Update is called once per frame
@@ -14,8 +15,19 @@ public class Projectiles : MonoBehaviourPun
         this.projectileLifetime -= Time.deltaTime;
         if (projectileLifetime < 0 || this.pierce <= 0)
         {
-            GetComponent<PhotonView>().RPC("destroyProjectile", RpcTarget.All);
+            Destroy(this.gameObject);
+            //GetComponent<PhotonView>().RPC("destroyProjectile", RpcTarget.All);
         }
+    }
+
+    public int getID()
+    {
+        return this.id;
+    }
+
+    public void setID(int num)
+    {
+        this.id = num;
     }
 
     private void destroyProjectileRPC()
@@ -26,7 +38,7 @@ public class Projectiles : MonoBehaviourPun
     [PunRPC]
     private void destroyProjectile()
     {
-        Destroy(this.gameObject);
+        //PhotonNetwork.Destroy(this.gameObject);
     }
 
     // I am not still not a C# gamer. I still make getters and setters like a Java person.

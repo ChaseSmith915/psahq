@@ -10,6 +10,8 @@ public class NoobType4 : Noob
 
     public override void Start()
     {
+        this.playRef = GameObject.FindWithTag("Reference").GetComponent<PlayerReference>();
+
         this.maxHP += ((PhotonNetwork.CurrentRoom.PlayerCount - 1) * 0.25f * this.maxHP);
         this.knockedOut = false;
         this.cur_hp = this.maxHP;
@@ -24,9 +26,7 @@ public class NoobType4 : Noob
     void Update()
     {
         if (!this.curTeleport) {
-            //this.setDirection();
-            //this.walk(this.move);
-            this.walk();
+            this.pv.RPC("walk", RpcTarget.All);
         }
         this.cur_teleTime -= Time.deltaTime;
     }
@@ -39,9 +39,9 @@ public class NoobType4 : Noob
         //This is honestly just the Noob's walk method but with this.speed replaced with amount.
     }
 
+    [PunRPC]
     private void teleport()
     {
-        //this.setDirection();
         this.distance(15f);
         StartCoroutine(this.time());
         //For 0.05 seconds, basically move really fast. It just gives the interpretation that
@@ -54,7 +54,7 @@ public class NoobType4 : Noob
 
         if (this.cur_teleTime <= 0 && !this.knockedOut)
         {
-            this.teleport();
+            this.pv.RPC("teleport", RpcTarget.All);
             this.cur_teleTime = this.teleportCooldown;
             //The Noob can only teleport is enough time has passed AND the Noob is not
             //currently being knocked back.
