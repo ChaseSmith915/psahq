@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class PlayerProjectile : MonoBehaviour
 {
     public float cooldown = 0.5f, cur_cooldown = 0f, speed = 8f;
-    public GameObject projectile;
+    public Projectiles projectile;
     public Camera cam;
     public Animator animator;
     [SerializeField] private RossSounds rossSounds;
@@ -15,7 +15,7 @@ public class PlayerProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //this.gameObject.SetActive(true);
+        
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class PlayerProjectile : MonoBehaviour
     public virtual void fire()
     {
         rossSounds.playShootSound();
-        GameObject shot = PhotonNetwork.Instantiate(this.projectile.name, transform.position, transform.rotation);
+        GameObject shot = PhotonNetwork.Instantiate(this.projectile.gameObject.name, transform.position, transform.rotation);
         Rigidbody2D hitbox = shot.GetComponent<Rigidbody2D>();
         Vector2 relative = (this.cam.ScreenToWorldPoint(Input.mousePosition) - transform.position);
         float angle = Mathf.Atan2(relative.y, relative.x) * Mathf.Rad2Deg - 90f;

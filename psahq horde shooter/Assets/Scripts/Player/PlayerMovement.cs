@@ -1,20 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using Photon.Pun;
 
 public class PlayerMovement : MonoBehaviour
 {
 
-    public Rigidbody2D rigBod;
-    public Camera cam;
-    public float speed = 5f, accelSpeed;
-    public Animator animator;
+    [SerializeField] private Rigidbody2D rigBod;
+    //[SerializeField] private Camera cam;
+    [SerializeField] private float speed = 5f, accelSpeed;
+    [SerializeField] private Animator animator;
     //Adjust speed if needed;
+    [SerializeField] private TMP_Text score;
+    private int noobCount, id;
+    [SerializeField] private PhotonView photonV;
+    [SerializeField] private GameObject canvasOverlap; 
+    //canvasOverlap is just any Canvas gameObjects that take up the entire screen.
+
+    public int getID()
+    {
+        return this.id;
+    }
+
+    public void setID(int num)
+    {
+        this.id = num;
+    }
+
+    public int getNoobCount()
+    {
+        return this.noobCount;
+    }
+
+    public void setText(string word)
+    {
+        this.score.text = word;
+    }
+
+    public void setNoobCount(int num)
+    {
+        this.noobCount = num;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.noobCount = 0;
+
+        if (!this.photonV.IsMine)
+        {
+            Destroy(this.canvasOverlap);
+            //Because each Player has their own screen Canvas that takes up the screen,
+            //it would cause us to have multiple screen Canvases on our screen and so
+            //we must have a reference to the screen Canvas and destroy copies of it.
+        }
     }
 
     // Update is called once per frame

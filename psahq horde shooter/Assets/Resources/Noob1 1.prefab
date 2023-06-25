@@ -925,6 +925,7 @@ MonoBehaviour:
   healthbar: {fileID: 641213767646237801}
   knockedOut: 0
   rotater: {fileID: 4447315562638227963}
+  playRef: {fileID: 0}
   anim: {fileID: 7754349720221764994}
 --- !u!50 &321450704443177091
 Rigidbody2D:

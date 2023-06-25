@@ -8,6 +8,8 @@ public class PlayerReference : MonoBehaviour
     public static PlayerReference Instance;
     public GameObject myPlayer;
     public Camera playerCam;
+    private GameObject[] players;
+
     void Start()
     {
         if (Instance == null)
@@ -15,13 +17,22 @@ public class PlayerReference : MonoBehaviour
         else
             Destroy(this.gameObject);
 
-        GameObject[] players = GameObject.FindGameObjectsWithTag("player");
-        foreach (GameObject player in players)
+        this.players = GameObject.FindGameObjectsWithTag("player");
+        int i = 0;
+
+        foreach (GameObject player in this.players)
         {
             if (player.GetComponent<PhotonView>().IsMine == true)
             {
                 myPlayer = player;
             }
+
+            PlayerProjectile blast = player.GetComponent<PlayerProjectile>();
+            if (blast)
+            {
+                blast.projectile.setID(i++);
+            }
+
         }
         if(myPlayer != null)
         {
@@ -34,4 +45,10 @@ public class PlayerReference : MonoBehaviour
     {
         
     }
+
+    public GameObject getPlayer(int index)
+    {
+        return this.players[index];
+    }
+
 }
