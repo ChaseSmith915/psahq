@@ -192,11 +192,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 559494683451310825, guid: 1bee537bf1cd1234ea5f7c576d7f5c3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.7936373
+      value: 9.82
       objectReference: {fileID: 0}
     - target: {fileID: 559494683451310825, guid: 1bee537bf1cd1234ea5f7c576d7f5c3a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.141821
+      value: 13.67
       objectReference: {fileID: 0}
     - target: {fileID: 559494683451310825, guid: 1bee537bf1cd1234ea5f7c576d7f5c3a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -238,6 +238,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3407167869606243516, guid: 1bee537bf1cd1234ea5f7c576d7f5c3a, type: 3}
+      propertyPath: hqXY
+      value: 
+      objectReference: {fileID: 1986679901}
     - target: {fileID: 4234881524143939228, guid: 1bee537bf1cd1234ea5f7c576d7f5c3a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -371,6 +375,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1558012908277161792, guid: 63b01514d864d844992a96f62f03cfdc, type: 3}
+      propertyPath: hqXY
+      value: 
+      objectReference: {fileID: 1986679901}
     - target: {fileID: 2018044882209925213, guid: 63b01514d864d844992a96f62f03cfdc, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -440,6 +448,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63b01514d864d844992a96f62f03cfdc, type: 3}
+--- !u!4 &1986679901 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1946238860627158385, guid: 27b4da6bf755fab47a9694fa54c0f169, type: 3}
+  m_PrefabInstance: {fileID: 1233876744}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2105117905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5721242472752730236, guid: c45d8ee6a02857e4dbb50ed782c4309e, type: 3}
@@ -453,6 +466,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 528168043117772936, guid: 592f275cb431f5443873a00093c880d8, type: 3}
+      propertyPath: hqXY
+      value: 
+      objectReference: {fileID: 1986679901}
     - target: {fileID: 545386708494088137, guid: 592f275cb431f5443873a00093c880d8, type: 3}
       propertyPath: sceneViewId
       value: 2

@@ -68,7 +68,7 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
         //can override methods with 'virtual' in it.
 
         this.knockedOut = false;
-        this.maxHP += ((PhotonNetwork.CurrentRoom.PlayerCount - 1) * 1.25f);
+        this.maxHP += ((PhotonNetwork.CurrentRoom.PlayerCount - 1) * 0.25f * this.maxHP);
         this.cur_hp = this.maxHP;
         this.hqXY = GameObject.Find("HQ").transform;
 
