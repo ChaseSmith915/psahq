@@ -34,6 +34,6 @@ public class NoobType1 : Noob, IPunObservable
         //After getting the direction, it then moves.
         //To see the implementation of both methods, please look at the Noob script.
 
-        this.pv.RPC("walk", RpcTarget.All);
+        this.walk();
     }
 }

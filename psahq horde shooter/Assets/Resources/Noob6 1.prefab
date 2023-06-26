@@ -888,7 +888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cur_hp: 0
   maxHP: 15
-  speed: 4
+  speed: 1.5
   knockbackTime: 0.4
   knockbackPower: 2
   pv: {fileID: 8826750922366664624}
@@ -898,6 +898,7 @@ MonoBehaviour:
   healthbar: {fileID: 5960243977918747711}
   knockedOut: 0
   rotater: {fileID: 1212974634351727834}
+  playRef: {fileID: 0}
   teleportCooldown: 3
   cur_teleTime: 0
 --- !u!50 &6576633399958057640

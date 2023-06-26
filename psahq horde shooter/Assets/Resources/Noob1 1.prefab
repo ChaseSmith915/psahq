@@ -915,7 +915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cur_hp: 0
   maxHP: 10
-  speed: 6
+  speed: 2.5
   knockbackTime: 0.3
   knockbackPower: 4
   pv: {fileID: 1295986335395536631}

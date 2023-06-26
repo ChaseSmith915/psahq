@@ -26,7 +26,7 @@ public class NoobType4 : Noob
     void Update()
     {
         if (!this.curTeleport) {
-            this.pv.RPC("walk", RpcTarget.All);
+            this.walk();
         }
         this.cur_teleTime -= Time.deltaTime;
     }
@@ -54,7 +54,7 @@ public class NoobType4 : Noob
 
         if (this.cur_teleTime <= 0 && !this.knockedOut)
         {
-            this.pv.RPC("teleport", RpcTarget.All);
+            this.teleport();
             this.cur_teleTime = this.teleportCooldown;
             //The Noob can only teleport is enough time has passed AND the Noob is not
             //currently being knocked back.

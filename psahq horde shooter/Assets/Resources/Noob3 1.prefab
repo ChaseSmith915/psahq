@@ -508,7 +508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cur_hp: 0
   maxHP: 10
-  speed: 9
+  speed: 4
   knockbackTime: 0.35
   knockbackPower: 3.5
   pv: {fileID: 1111636429231758388}
@@ -518,6 +518,7 @@ MonoBehaviour:
   healthbar: {fileID: 3218387571133767423}
   knockedOut: 0
   rotater: {fileID: 6823368666404216074}
+  playRef: {fileID: 0}
   anim: {fileID: 0}
 --- !u!114 &3073596053739498572
 MonoBehaviour:

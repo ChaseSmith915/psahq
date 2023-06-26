@@ -7,7 +7,7 @@ using Photon.Pun;
 public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
 {
     public float cur_hp, maxHP = 10f, speed = 3f, knockbackTime, knockbackPower;
-    public PhotonView pv;
+    [SerializeField] private PhotonView pv;
     public Transform hqXY;
     //hqXY will have a reference to the HQ so that the Noobs know where the HQ is and walk towards it.
 
@@ -39,7 +39,6 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
             this.rigB.MovePosition((Vector2)transform.position + (angle * this.speed * Time.deltaTime));
     }
 
-    [PunRPC]
     public void walk()
     {
         Vector3 relative = this.hqXY.position - transform.position;
@@ -74,6 +73,7 @@ public abstract class Noob : MonoBehaviourPunCallbacks, IPunObservable
             PlayerMovement obj = this.playRef.getPlayer(id).GetComponent<PlayerMovement>();
             if (obj)
             {
+                Debug.Log("Player ID is: " + id);
                 obj.setNoobCount(obj.getNoobCount() + 1);
                 obj.setText("Noobs: " + obj.getNoobCount());
             }
