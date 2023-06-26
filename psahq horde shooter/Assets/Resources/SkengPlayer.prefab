@@ -636,10 +636,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigBod: {fileID: 1189081711761853640}
-  cam: {fileID: 1834024234589578947}
   speed: 6
   accelSpeed: 0.15
   animator: {fileID: 2365644935702531307}
+  score: {fileID: 0}
+  photonV: {fileID: 0}
+  canvasOverlap: {fileID: 0}
 --- !u!50 &1189081711761853640
 Rigidbody2D:
   serializedVersion: 4
