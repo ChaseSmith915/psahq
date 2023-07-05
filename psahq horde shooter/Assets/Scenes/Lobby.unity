@@ -3043,7 +3043,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -173.39, y: 73.14}
+  m_AnchoredPosition: {x: -173.38998, y: 73.14}
   m_SizeDelta: {x: 342.78, y: 142.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1445038645
@@ -3184,7 +3184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b72d2c992b8b7243a80ee2baf0210ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterChoice: 
+  characterChoice: Ross
 --- !u!1 &1519167924
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,11 @@ public class NoobSpawner : MonoBehaviour
     [SerializeField] private GameObject[] noobPrefabs;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private PhotonView pv;
+    [SerializeField] private List<GameObject> enemies = new List<GameObject>();
+    [SerializeField] private Wave placeHolderWave;
+    public float intervalDecay;
+    public float startInterval;
+    public float enemyAmountIncreaseByWave;
     public int wave;
     public event Action OnGameStart;
     public event Action OnGameWin;
@@ -46,6 +51,7 @@ public class NoobSpawner : MonoBehaviour
     }
     private IEnumerator sendWaves()
     {
+        int waveNumber = 1;
         foreach(Wave wave in waves)
         {
             yield return new WaitForEndOfFrame();
@@ -57,10 +63,23 @@ public class NoobSpawner : MonoBehaviour
                 yield return null;
             }
             yield return new WaitForEndOfFrame();
+            waveNumber++;
         }
-        yield return new WaitForSeconds(100);
-        Debug.Log("win");
-        pv.RPC("gameWinRPC", RpcTarget.All);
+        //Randomly Generated
+        Debug.Log("last wave complete. will randomly generate waves from now on.");
+
+        while(true)
+        {
+            placeHolderWave.generateRandomWaves();
+            placeHolderWave.sendWave();
+            while (!(isKeyDown && (pv.IsMine)))
+            {
+                yield return null;
+            }
+            yield return new WaitForEndOfFrame();
+            waveNumber++;
+        }
+
     }
 
     [PunRPC]
